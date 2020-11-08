@@ -32,7 +32,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const passwordDB = process.env.DB_PASSWORD;
-const addr = "mongodb+srv://dbUser:" + passwordDB +"@cluster0.c6fst.mongodb.net/secretsDB?retryWrites=true&w=majority"
+const addr = "mongodb+srv://dbUser:" + passwordDB +"@cluster0.c6fst.mongodb.net/secretsDB?retryWrites=true&w=majority";
 mongoose.connect(addr, {useNewUrlParser: true, useUnifiedTopology: true});
 
 mongoose.set('useCreateIndex', true);
@@ -64,7 +64,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/secrets",
+    callbackURL: "https://share-your-secrets-app.herokuapp.com/auth/google/secrets",
     // userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
