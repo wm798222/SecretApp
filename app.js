@@ -32,7 +32,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const passwordDB = process.env.DB_PASSWORD;
-mongoose.connect("mongodb+srv://dbUser:" + passwordDB +"@cluster0.c6fst.mongodb.net/secretsDB?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true});
+const addr = "mongodb+srv://dbUser:" + passwordDB +"@cluster0.c6fst.mongodb.net/secretsDB?retryWrites=true&w=majority"
+mongoose.connect(addr, {useNewUrlParser: true, useUnifiedTopology: true});
 
 mongoose.set('useCreateIndex', true);
 
